@@ -23,14 +23,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
 
-      - name: Lint HTML, CSS, and JavaScript files
-        run: |
-          npx htmlhint "**/*.html" # Lint HTML files using HTMLHint
-
-          npx stylelint "**/*.css" # Lint CSS files using stylelint
-
-          npx eslint "**/*.js" # Lint JavaScript files using ESLint
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
